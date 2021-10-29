@@ -9,6 +9,7 @@ namespace Mankalari
     class Player
     {
         string name;
+        public int points = 0;
 
         public Player(string name)
         {

@@ -1,0 +1,16 @@
+C:\Users\woest\source\repos\Mankalari\bin\Debug\net5.0\Mankalari.exe
+C:\Users\woest\source\repos\Mankalari\bin\Debug\net5.0\Mankalari.deps.json
+C:\Users\woest\source\repos\Mankalari\bin\Debug\net5.0\Mankalari.runtimeconfig.json
+C:\Users\woest\source\repos\Mankalari\bin\Debug\net5.0\Mankalari.runtimeconfig.dev.json
+C:\Users\woest\source\repos\Mankalari\bin\Debug\net5.0\Mankalari.dll
+C:\Users\woest\source\repos\Mankalari\bin\Debug\net5.0\ref\Mankalari.dll
+C:\Users\woest\source\repos\Mankalari\bin\Debug\net5.0\Mankalari.pdb
+C:\Users\woest\source\repos\Mankalari\obj\Debug\net5.0\Mankalari.csproj.AssemblyReference.cache
+C:\Users\woest\source\repos\Mankalari\obj\Debug\net5.0\Mankalari.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\woest\source\repos\Mankalari\obj\Debug\net5.0\Mankalari.AssemblyInfoInputs.cache
+C:\Users\woest\source\repos\Mankalari\obj\Debug\net5.0\Mankalari.AssemblyInfo.cs
+C:\Users\woest\source\repos\Mankalari\obj\Debug\net5.0\Mankalari.csproj.CoreCompileInputs.cache
+C:\Users\woest\source\repos\Mankalari\obj\Debug\net5.0\Mankalari.dll
+C:\Users\woest\source\repos\Mankalari\obj\Debug\net5.0\ref\Mankalari.dll
+C:\Users\woest\source\repos\Mankalari\obj\Debug\net5.0\Mankalari.pdb
+C:\Users\woest\source\repos\Mankalari\obj\Debug\net5.0\Mankalari.genruntimeconfig.cache

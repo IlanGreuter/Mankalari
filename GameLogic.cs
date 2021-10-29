@@ -33,7 +33,15 @@ namespace Mankalari
                 return false;
         }
 
-        public abstract bool IsAllowed(int index, Player p);
+        public virtual bool IsAllowed(int index, Player p)
+        {
+            Cup c = board.GetCup(index);
+            if (c.owner == p && c.points > 0 && !c.isHomeCup)
+            {
+                return true;
+            }
+            return false;
+        }
 
         public abstract void EndAtCup(int index, Player p);
 

@@ -68,5 +68,15 @@ namespace Mankalari
                 return sideEmpty;
         }
 
+        public Cup GetHomeCup(Player p)
+        {
+            foreach (Cup c in homeCups)
+            {
+                if (c.owner == p)
+                    return c;
+            }
+            return null;
+        }
+
     }
 }
