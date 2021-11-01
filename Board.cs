@@ -14,6 +14,7 @@ namespace Mankalari
 
         public Board(int cupsPerPlayer, Player[] players, int stonesPerCup, bool includeHomeCups)
         {
+            this.cupsPerPlayer = cupsPerPlayer;
             this.includeHomeCups = includeHomeCups;
 
             cups = new List<Cup>();
@@ -37,9 +38,9 @@ namespace Mankalari
             int moves = cups[index].points;
             cups[index].points = 0; //take the stones out of the cup
 
-            for (int i = index; i < index + moves; ++i) // go over the next cups
+            for (int i = ++index; i < index + moves; ++i) // go over the next cups
             {
-                Cup c = cups[i];
+                Cup c = GetCup(i);
                 if (c.isHomeCup && c.owner != p) //dont fill opponent's homecup
                 {
                     moves++;
@@ -54,7 +55,7 @@ namespace Mankalari
 
         public Cup GetCup(int index)
         {
-            return cups[index];
+            return cups[index % cups.Count];
         }
 
         public bool IsSideEmpty(Player p)
@@ -76,6 +77,44 @@ namespace Mankalari
                     return c;
             }
             return null;
+        }
+
+        public string PrintBoard()
+        {
+            string board = "";
+            bool leftToRight = false;
+
+            int i = 0;
+            while (i < cups.Count)
+            {
+                board += PrintRow(i, leftToRight);
+                leftToRight = !leftToRight;
+                i += cupsPerPlayer + 1;
+            }
+
+            return board;
+        }
+
+        public string PrintRow(int index, bool leftToRight)
+        {
+            string row = "|";
+
+            int i = index + (leftToRight ? 0 : cupsPerPlayer);
+
+            while (i >= index && i <= (cupsPerPlayer + index)) //while still in row
+            {
+                Cup c = GetCup(i);
+                row += c + "|";
+
+                i += leftToRight ? 1 : -1;
+            }
+
+            if (leftToRight)
+                row += "   |";
+            else
+                row = "|   " + row;
+
+            return row + "\n";
         }
 
     }

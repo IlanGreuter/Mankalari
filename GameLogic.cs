@@ -25,6 +25,8 @@ namespace Mankalari
 
         public bool SelectCup(int index, Player p)
         {
+            index %= board.cups.Count(); 
+
             if (IsAllowed(index, p))
             {
                 board.MakeMove(index, p);

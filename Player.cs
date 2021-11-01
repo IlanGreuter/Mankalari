@@ -17,9 +17,29 @@ namespace Mankalari
         }
 
 
-        public void GetInput()
+        public int GetInput()
         {
-            //TODO
+            int input = -1;
+
+            while (input < 0)
+            {
+                string txt = Console.ReadLine();
+                int i;
+                if (int.TryParse(txt, out i)) //make sure input is a number
+                {
+                    input = i;
+                }
+                else
+                    Console.WriteLine("Input is not a number! Please write numbers only!");
+
+                if (i < 0) //make sure input is positive
+                {
+                    Console.WriteLine("Negative numbers are not allowed!");
+                    input = -1;
+                }    
+            }
+
+            return input;
         }
 
     }

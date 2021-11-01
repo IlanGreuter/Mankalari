@@ -19,5 +19,10 @@ namespace Mankalari
             isHomeCup = ishomecup;
         }
 
+        public override string ToString()
+        {
+            return (isHomeCup? " " : "") + points.ToString().PadRight(2);
+        }
+
     }
 }
