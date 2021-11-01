@@ -25,11 +25,11 @@ namespace Mankalari
                 Cup homecup = new Cup(0, p, true); //player's home cup
                 homeCups.Add(homecup);
 
-                if(includeHomeCups) //if homecups participate, mix them in with the regular cups.
-                    cups.Add(homecup); 
-
                 for (int i = 0; i < cupsPerPlayer; i++)
                     cups.Add(new Cup(stonesPerCup, p)); //player's normal cups
+
+                if(includeHomeCups) //if homecups participate, mix them in with the regular cups.
+                    cups.Add(homecup); 
             }
         }
 
@@ -84,24 +84,24 @@ namespace Mankalari
             string board = "";
             bool leftToRight = false;
 
-            int i = 0;
-            while (i < cups.Count)
+            for (int homeCupIndex = homeCups.Count - 1; homeCupIndex >= 0; homeCupIndex--)
             {
-                board += PrintRow(i, leftToRight);
+                board += PrintRow(homeCupIndex, leftToRight);
                 leftToRight = !leftToRight;
-                i += cupsPerPlayer + 1;
-            }
+            } 
 
             return board;
         }
 
-        public string PrintRow(int index, bool leftToRight)
+        public string PrintRow(int homeIndex, bool leftToRight)
         {
-            string row = "|";
+            string row = "|"; 
+            string home = homeCups[homeIndex].ToString();
 
-            int i = index + (leftToRight ? 0 : cupsPerPlayer);
+            int cupIndex = homeIndex * (cupsPerPlayer + (includeHomeCups? 1 : 0));
+            int i = cupIndex + (leftToRight ? 0 : cupsPerPlayer - 1);            
 
-            while (i >= index && i <= (cupsPerPlayer + index)) //while still in row
+            while (i >= cupIndex && i < (cupIndex + cupsPerPlayer)) //while still in row
             {
                 Cup c = GetCup(i);
                 row += c + "|";
@@ -110,9 +110,13 @@ namespace Mankalari
             }
 
             if (leftToRight)
-                row += "   |";
+            {
+                row = "|   " + row + home + "|";
+            }
             else
-                row = "|   " + row;
+            {
+                row = "|" + home + row + "   |";
+            }
 
             return row + "\n";
         }

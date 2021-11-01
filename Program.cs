@@ -8,9 +8,9 @@ namespace Mankalari
 
         static void Main(string[] args)
         {
-            Board b = new Board(6, players, 4, true);
+            Board b = new Board(4, players, 4, true);
             Console.WriteLine(b.PrintBoard());
-            b.MakeMove(12, players[0]);
+            b.MakeMove(0, players[0]);
             Console.WriteLine(b.PrintBoard());
         }
     }
