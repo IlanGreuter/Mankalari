@@ -24,6 +24,8 @@ namespace Mankalari
             if (c.owner != p && (c.points == 2 || c.points == 3))
             {
                 Cup home = board.GetHomeCup(p);
+                home.points += c.points;
+                c.points = 0;
             }
         }
 

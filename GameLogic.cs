@@ -14,6 +14,7 @@ namespace Mankalari
         public GameLogic(Board b)
         {
             board = b;
+            playAgain = false;
         }
 
         public bool StartTurn(Player p)
@@ -46,11 +47,6 @@ namespace Mankalari
         public abstract void EndAtCup(int index, Player p);
 
         public abstract void OnGameEnd(GameController control);
-
-        public bool CanPlayAgain()
-        {
-            return playAgain;
-        }
- 
+         
     }
 }

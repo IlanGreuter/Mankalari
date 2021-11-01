@@ -21,10 +21,17 @@ namespace Mankalari
             logic = LogicFactory.GetLogic(gameType, players, stonesPerCup, cupsPerPlayer);
         }
 
-        Player GetNextPlayer()
+        void SetNextPlayer()
         {
-            //TODO
-            throw new NotImplementedException();
+            if (logic.playAgain)
+            {
+                logic.playAgain = false;
+            }
+            else
+            {
+                currentPlayer++;
+                currentPlayer %= players.Length;
+            }
         }
 
         public void StartTurn()
@@ -35,17 +42,28 @@ namespace Mankalari
 
         public void DoMove()
         {
-            //TODO
+            //players[currentPlayer].GetInput();
+            int cupIndex = 1; //TODO
+
+            if (logic.SelectCup(cupIndex, players[currentPlayer])) //if the move was allowed
+            {
+                SetNextPlayer();
+            }
+            else
+                return;
+
         }
 
         public void StartGame()
         {
-            //TODO
+            foreach (Player p in players) //reset the scores
+                p.points = 0;
         }
 
         public void EndGame()
         {
-            //TODO
+            logic.OnGameEnd(this);
+            //TODO: go to win/startscreen
         }
 
     }
