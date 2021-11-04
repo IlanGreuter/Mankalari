@@ -91,44 +91,46 @@ namespace Mankalari
             return null;
         }
 
-        public string PrintBoard(bool showIndex = false)
+        public void PrintBoard(bool showIndex = false)
         {
             string board = "";
             bool leftToRight = false;
 
             for (int homeCupIndex = homeCups.Count - 1; homeCupIndex >= 0; homeCupIndex--)
             {
-                board += PrintRow(homeCupIndex, leftToRight);
+                board += PrintRow(homeCupIndex, leftToRight, showIndex);
                 leftToRight = !leftToRight;
             }
 
-            return board;
+            ConsoleColor c = showIndex ? ConsoleColor.Red : ConsoleColor.White;
+            ConsoleHelper.PrintToConsole(board, c);
         }
 
-        public string PrintRow(int homeIndex, bool leftToRight, bool showIndex = false)
+        public string PrintRow(int homeIndex, bool leftToRight, bool showIndex) //returns a string representing a row
         {
-            string row = "|"; 
+            string row = "|";
 
-            int cupIndex = homeIndex * (cupsPerPlayer + (includeHomeCups? 1 : 0));
-            int i = cupIndex + (leftToRight ? 0 : cupsPerPlayer - 1);            
+            int cupIndex = homeIndex * (cupsPerPlayer + (includeHomeCups ? 1 : 0)); //row's starting index
+            int i = cupIndex + (leftToRight ? 0 : cupsPerPlayer - 1); //leftmost cup's index           
 
-            string home = homeCups[homeIndex].ToString();
-            while (i >= cupIndex && i < (cupIndex + cupsPerPlayer)) //while still in row
+            while (i >= cupIndex && i < (cupIndex + cupsPerPlayer)) //while still in current row
             {
-                Cup c = GetCup(i);
-                row += c + "|";
+                string cupText = showIndex? i.ToString().PadLeft(2) : $"{GetCup(i)}"; //show either index or cup's points
 
+                row += cupText + "|";
                 i += leftToRight ? 1 : -1;
             }
 
-            if (leftToRight)
-            {
-                row = "|   " + row + home + "|";
-            }
+            string home;
+            if (showIndex) //show home's points, home's index (if it has one) or nothing
+                home = includeHomeCups ? $" {cupIndex + cupsPerPlayer} " : "   ";
             else
-            {
+                home = homeCups[homeIndex].ToString();
+
+            if (leftToRight) // add home and make sure it alligns
+                row = "|   " + row + home + "|";
+            else
                 row = "|" + home + row + "   |";
-            }
 
             return row + "\n";
         }

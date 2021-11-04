@@ -21,7 +21,7 @@ namespace Mankalari
         public override void EndAtCup(int index, Player p)
         {
             Cup c = board.GetCup(index);
-            if (c.owner != p && (c.points == 2 || c.points == 3))
+            if (c.owner != p && (c.points == 2 || c.points == 3)) //steal only if landed in opponents and it has 2 or 3 stones
             {
                 Cup home = board.GetHomeCup(p);
                 home.points += c.points;

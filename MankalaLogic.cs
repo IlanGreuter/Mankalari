@@ -29,7 +29,7 @@ namespace Mankalari
             {
                 int i = board.MakeMove(index, p);
                 Console.WriteLine($"Player {p.name} moves from {index}");
-                Console.WriteLine(board.PrintBoard());
+                board.PrintBoard();
                 EndAtCup(i, p);
             }
             else if (c.points == 1 && c.owner == p) //end in own empty cup

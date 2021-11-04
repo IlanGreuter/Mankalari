@@ -13,12 +13,6 @@ namespace Mankalari
 
             game = start.GetGameController();
             game.StartGame();
-
-
-            //Board b = new Board(4, players, 4, true);
-            //Console.WriteLine(b.PrintBoard());
-            //b.MakeMove(0, players[0]);
-            //Console.WriteLine(b.PrintBoard());
         }
 
 

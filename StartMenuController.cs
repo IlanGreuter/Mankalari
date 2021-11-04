@@ -11,7 +11,7 @@ namespace Mankalari
         public string gameType = "";
         public int stonePerCup;
         public int cupsPerPlayer;
-        public string[] names;
+        //public string[] names;
         static Player[] players = { new Player("1"), new Player("2") };
         const int maxValue = 99;
 
@@ -20,13 +20,13 @@ namespace Mankalari
         {
             while (gameType == "")
             {
-                string ans = InputHelper.AskUser("Would you like to play Mankala or Wari?");
+                string ans = ConsoleHelper.AskUser("Would you like to play Mankala or Wari?");
                 ans = ans.ToUpper();
                 if (ans == "MANKALA" || ans == "WARI")
                     gameType = ans;
             }
-            cupsPerPlayer = InputHelper.QueryInt($"Enter how many cups you want per player (between 1 and {maxValue}).");
-            stonePerCup = InputHelper.QueryInt($"Enter how many stones each cup should start with (between 1 and {maxValue})");
+            cupsPerPlayer = ConsoleHelper.QueryInt($"Enter how many cups you want per player (between 1 and {maxValue}).");
+            stonePerCup = ConsoleHelper.QueryInt($"Enter how many stones each cup should start with (between 1 and {maxValue})");
         }
 
 
@@ -34,6 +34,7 @@ namespace Mankalari
 
         public GameController GetGameController()
         {
+            //create the players from the names, currently disabled 
             //Player[] players = new Player[names.Length];
             //for (int i = 0; i < names.Length; i++)
                 //players[i] = new Player(names[i]);

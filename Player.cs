@@ -19,7 +19,7 @@ namespace Mankalari
 
         public int GetInput()
         {
-            int input = InputHelper.QueryInt($"From where does Player {name} want to move?", 200);
+            int input = ConsoleHelper.QueryInt($"From where does Player {name} want to move?", 200);
 
             return input;
         }

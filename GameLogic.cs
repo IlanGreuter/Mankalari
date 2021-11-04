@@ -19,7 +19,8 @@ namespace Mankalari
 
         public bool StartTurn(Player p) //returns false if no move is possible
         {
-            Console.WriteLine(board.PrintBoard());
+            board.PrintBoard(true); //print board's indexes to help players see what index each cup has
+            board.PrintBoard(); //print actual board displaying stones in each cup
             playAgain = false;
             return !board.IsSideEmpty(p);
         }

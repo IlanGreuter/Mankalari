@@ -12,7 +12,6 @@ namespace Mankalari
         public GameLogic logic;
         public int currentPlayer;
         public Player[] players;
-        public bool ongoing;
 
         public GameController(string gameType, Player[] players, int stonesPerCup, int cupsPerPlayer)
         {
@@ -54,7 +53,7 @@ namespace Mankalari
             }
             else
             {
-                Console.WriteLine("Move not allowed, please make sure you move from your own cup");
+                ConsoleHelper.PrintToConsole("Move not allowed, Make sure you move from your own, non-empty cup", ConsoleColor.DarkRed);
             }
             StartTurn();
         }
@@ -72,9 +71,8 @@ namespace Mankalari
             logic.OnGameEnd(this);
             foreach (Player p in players)
             {
-                Console.WriteLine($"Player {p.name} ended with {p.points} points! \n");
+                ConsoleHelper.PrintToConsole($"Player {p.name} ended with {p.points} points! \n", ConsoleColor.Yellow);
             }
-            ongoing = false;
 
         }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mankalari
 {
-    static class InputHelper
+    static class ConsoleHelper
     {
         public static int QueryInt(string message, int maxValue = 99) //Ask the user for a non-negative int
         {
@@ -27,6 +27,13 @@ namespace Mankalari
         {
             Console.WriteLine(message);
             return Console.ReadLine();
+        }
+
+        public static void PrintToConsole(string message, ConsoleColor textColor = ConsoleColor.White)
+        {
+            Console.ForegroundColor = textColor;
+            Console.WriteLine(message);
+            Console.ResetColor();
         }
 
     }
