@@ -51,12 +51,13 @@ namespace Mankalari
                     c.points++;
                 }
             }
+
             return (index + moves) % cups.Count;
         }
 
         public Cup GetCup(int index)
         {
-            index %= cups.Count;
+            index %= cups.Count; //wrap around the board if index exceeds it
             return cups[index];
         }
 
@@ -75,7 +76,7 @@ namespace Mankalari
             bool sideEmpty = true;
             foreach (Cup c in cups)
             {
-                if (c.owner == p && c.points > 0 && !c.isHomeCup)
+                if (c.owner == p && c.points > 0 && !c.isHomeCup) //check if cup is player's and empty
                     sideEmpty = false;
             }
             return sideEmpty;
@@ -96,10 +97,10 @@ namespace Mankalari
             string board = "";
             bool leftToRight = false;
 
-            for (int homeCupIndex = homeCups.Count - 1; homeCupIndex >= 0; homeCupIndex--)
+            for (int homeCupIndex = homeCups.Count - 1; homeCupIndex >= 0; homeCupIndex--) //foreach homecup (AKA row)
             {
-                board += PrintRow(homeCupIndex, leftToRight, showIndex);
-                leftToRight = !leftToRight;
+                board += PrintRow(homeCupIndex, leftToRight, showIndex); 
+                leftToRight = !leftToRight; //switch direction after row to show cups counter-clockwise
             }
 
             ConsoleColor c = showIndex ? ConsoleColor.Red : ConsoleColor.White;

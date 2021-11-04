@@ -11,10 +11,22 @@ namespace Mankalari
             start = new StartMenuController();
             start.QueryUser();
 
+            string ans = "Y";
+            while(ans == "Y" || ans == "yes" || ans == "Yes") //allow multipe spellings
+            {
+                StartGame();
+                string playagain = ConsoleHelper.AskUser("Play Again? Y/N");
+                ans = playagain;
+            }
+
+
+        }
+
+        static void StartGame()
+        {
             game = start.GetGameController();
             game.StartGame();
         }
-
 
     }
 }

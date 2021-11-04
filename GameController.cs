@@ -69,11 +69,12 @@ namespace Mankalari
         public void EndGame()
         {
             logic.OnGameEnd(this);
-            foreach (Player p in players)
+
+            foreach (Player p in players) //show player scores
             {
                 ConsoleHelper.PrintToConsole($"Player {p.name} ended with {p.points} points! \n", ConsoleColor.Yellow);
             }
-
+            
         }
 
     }

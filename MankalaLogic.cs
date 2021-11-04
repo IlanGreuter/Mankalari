@@ -28,7 +28,7 @@ namespace Mankalari
             else if (c.points > 1) //end in non-empty cup (1 cuz move fills empty cups)
             {
                 int i = board.MakeMove(index, p);
-                Console.WriteLine($"Player {p.name} moves from {index}");
+                ConsoleHelper.PrintToConsole($"Player {p.name} moves from {index}");
                 board.PrintBoard();
                 EndAtCup(i, p);
             }
@@ -48,8 +48,9 @@ namespace Mankalari
 
         public override void OnGameEnd(GameController control)
         {
-            //capture players' own pieces
-            foreach (Cup c in board.cups)
+            //in most versions at the end of the game the players add all their stones from their own cups to their score
+            //this rule wasn't mentioned in the assignment but we added it anyway
+            foreach (Cup c in board.cups) //capture players' own pieces
             {
                 c.owner.points += c.points;
             }
