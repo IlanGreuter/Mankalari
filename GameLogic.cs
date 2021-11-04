@@ -17,19 +17,21 @@ namespace Mankalari
             playAgain = false;
         }
 
-        public bool StartTurn(Player p)
+        public bool StartTurn(Player p) //returns false if no move is possible
         {
+            Console.WriteLine(board.PrintBoard());
             playAgain = false;
-            return board.IsSideEmpty(p);
+            return !board.IsSideEmpty(p);
         }
 
-        public bool SelectCup(int index, Player p)
+        public bool SelectCup(int index, Player p) //returns true if a move is allowed from that cup
         {
-            index %= board.cups.Count(); 
+            index %= board.cups.Count; 
 
             if (IsAllowed(index, p))
             {
-                board.MakeMove(index, p);
+                int i = board.MakeMove(index, p);
+                EndAtCup(i, p);
                 return true;
             }
             else

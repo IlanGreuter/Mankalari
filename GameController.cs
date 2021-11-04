@@ -12,6 +12,7 @@ namespace Mankalari
         public GameLogic logic;
         public int currentPlayer;
         public Player[] players;
+        public bool ongoing;
 
         public GameController(string gameType, Player[] players, int stonesPerCup, int cupsPerPlayer)
         {
@@ -38,32 +39,43 @@ namespace Mankalari
         {
             if (!logic.StartTurn(players[currentPlayer])) //if no move is possible
                 EndGame();
+            else
+                DoMove();
         }
 
         public void DoMove()
         {
-            //players[currentPlayer].GetInput();
-            int cupIndex = 1; //TODO
+            
+            int cupIndex = players[currentPlayer].GetInput();
 
             if (logic.SelectCup(cupIndex, players[currentPlayer])) //if the move was allowed
             {
                 SetNextPlayer();
             }
             else
-                return;
-
+            {
+                Console.WriteLine("Move not allowed, please make sure you move from your own cup");
+            }
+            StartTurn();
         }
 
         public void StartGame()
         {
             foreach (Player p in players) //reset the scores
                 p.points = 0;
+
+            StartTurn();
         }
 
         public void EndGame()
         {
             logic.OnGameEnd(this);
-            //TODO: go to win/startscreen
+            foreach (Player p in players)
+            {
+                Console.WriteLine($"Player {p.name} ended with {p.points} points! \n");
+            }
+            ongoing = false;
+
         }
 
     }

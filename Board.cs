@@ -35,10 +35,11 @@ namespace Mankalari
 
         public int MakeMove(int index, Player p)
         {
-            int moves = cups[index].points;
-            cups[index].points = 0; //take the stones out of the cup
+            Cup startCup = GetCup(index);
+            int moves = startCup.points;
+            startCup.points = 0; //take the stones out of the cup
 
-            for (int i = ++index; i < index + moves; ++i) // go over the next cups
+            for (int i = index + 1; i <= index + moves; ++i) // go over the next cups
             {
                 Cup c = GetCup(i);
                 if (c.isHomeCup && c.owner != p) //dont fill opponent's homecup
@@ -50,12 +51,23 @@ namespace Mankalari
                     c.points++;
                 }
             }
-            return index + moves;
+            return (index + moves) % cups.Count;
         }
 
         public Cup GetCup(int index)
         {
-            return cups[index % cups.Count];
+            index %= cups.Count;
+            return cups[index];
+        }
+
+        public Cup GetOppositeCup(int index)
+        {
+            int oppositeIndex = cups.Count - index - 1;
+
+            if (includeHomeCups)
+                oppositeIndex--;
+
+            return GetCup(oppositeIndex);
         }
 
         public bool IsSideEmpty(Player p)
@@ -66,7 +78,7 @@ namespace Mankalari
                 if (c.owner == p && c.points > 0 && !c.isHomeCup)
                     sideEmpty = false;
             }
-                return sideEmpty;
+            return sideEmpty;
         }
 
         public Cup GetHomeCup(Player p)
@@ -79,7 +91,7 @@ namespace Mankalari
             return null;
         }
 
-        public string PrintBoard()
+        public string PrintBoard(bool showIndex = false)
         {
             string board = "";
             bool leftToRight = false;
@@ -88,19 +100,19 @@ namespace Mankalari
             {
                 board += PrintRow(homeCupIndex, leftToRight);
                 leftToRight = !leftToRight;
-            } 
+            }
 
             return board;
         }
 
-        public string PrintRow(int homeIndex, bool leftToRight)
+        public string PrintRow(int homeIndex, bool leftToRight, bool showIndex = false)
         {
             string row = "|"; 
-            string home = homeCups[homeIndex].ToString();
 
             int cupIndex = homeIndex * (cupsPerPlayer + (includeHomeCups? 1 : 0));
             int i = cupIndex + (leftToRight ? 0 : cupsPerPlayer - 1);            
 
+            string home = homeCups[homeIndex].ToString();
             while (i >= cupIndex && i < (cupIndex + cupsPerPlayer)) //while still in row
             {
                 Cup c = GetCup(i);

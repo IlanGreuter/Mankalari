@@ -25,19 +25,24 @@ namespace Mankalari
 
             if (c.isHomeCup) //another turn if end in homecup
                 playAgain = true;
-            else if (c.points > 1) //end in non-empty cup (1 cuz move fills empty)
+            else if (c.points > 1) //end in non-empty cup (1 cuz move fills empty cups)
             {
                 int i = board.MakeMove(index, p);
+                Console.WriteLine($"Player {p.name} moves from {index}");
+                Console.WriteLine(board.PrintBoard());
                 EndAtCup(i, p);
             }
             else if (c.points == 1 && c.owner == p) //end in own empty cup
             {
-                Cup opposite = board.GetCup(board.cups.Count - index);
-                Cup home = board.GetHomeCup(p);
-                home.points += opposite.points + 1;
+                Cup opposite = board.GetOppositeCup(index);
+                if (opposite.points > 0) // only steal if opposite cup is empty
+                {
+                    Cup home = board.GetHomeCup(p);
+                    home.points += opposite.points + 1;
 
-                opposite.points = 0;
-                c.points = 0;
+                    opposite.points = 0;
+                    c.points = 0;
+                }
             }
         }
 

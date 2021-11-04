@@ -12,12 +12,12 @@ namespace Mankalari
         public static GameLogic GetLogic(string gameType, Player[] players, int stonesPerCup, int cupsPerPlayer)
         {
             Board b;
-            switch (gameType)
+            switch (gameType.ToUpper())//makes sure input is full caps
             {
-                case "Mankala":
+                case "MANKALA":
                     b = new Board(cupsPerPlayer, players, stonesPerCup, true);
                     return new MankalaLogic(b);
-                case "Wari":
+                case "WARI":
                     b = new Board(cupsPerPlayer, players, stonesPerCup, false);
                     return new WariLogic(b);
                 default:

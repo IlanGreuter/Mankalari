@@ -8,7 +8,7 @@ namespace Mankalari
 {
     class Player
     {
-        string name;
+        public string name;
         public int points = 0;
 
         public Player(string name)
@@ -19,25 +19,7 @@ namespace Mankalari
 
         public int GetInput()
         {
-            int input = -1;
-
-            while (input < 0)
-            {
-                string txt = Console.ReadLine();
-                int i;
-                if (int.TryParse(txt, out i)) //make sure input is a number
-                {
-                    input = i;
-                }
-                else
-                    Console.WriteLine("Input is not a number! Please write numbers only!");
-
-                if (i < 0) //make sure input is positive
-                {
-                    Console.WriteLine("Negative numbers are not allowed!");
-                    input = -1;
-                }    
-            }
+            int input = InputHelper.QueryInt($"From where does Player {name} want to move?", 200);
 
             return input;
         }
