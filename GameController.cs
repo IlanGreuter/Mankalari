@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,7 +14,7 @@ namespace Mankalari
         public int currentPlayer;
         public Player[] players;
 
-        public event PlayerEventDelegate OnStartTurn;
+        public event PlayerEventDelegate OnStartTurn, OnGameEnd;
         public delegate void PlayerEventDelegate(Player p);
 
         public GameController(string gameType, Player[] players, int stonesPerCup, int cupsPerPlayer)
@@ -75,12 +76,12 @@ namespace Mankalari
         public void EndGame()
         {
             logic.OnGameEnd(this);
-
             foreach (Player p in players) //show player scores
             {
                 ConsoleHelper.PrintToConsole($"Player {p.name} ended with {p.points} points! \n", ConsoleColor.Yellow);
             }
-            
+            EventLogger.OnGameEnd(); // 
+
         }
 
     }

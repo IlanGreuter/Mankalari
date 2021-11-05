@@ -1,0 +1,11 @@
+Starting a new game of MANKALA with 2 cups per player filled with 1 stones each
+Player 1 moves 1 stones from index 0
+Cup 1 is now at 2
+Player 1 moves 2 stones from index 1
+Cup 2 is now at 1
+Cup 3 is now at 2
+Player 1 moves 2 stones from index 3
+Cup 4 is now at 2
+Cup 6 is now at 1
+Player 2 starts their turn
+Game End

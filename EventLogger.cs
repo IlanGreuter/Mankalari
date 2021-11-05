@@ -9,10 +9,9 @@ namespace Mankalari
 {
     static class EventLogger 
     {
-        static List<string> logs = new List<string>();
         const bool logFillCup = true; //disable so log doesn't get bloated with "added stone to X" messages
 
-        //static StreamWriter file = new StreamWriter();
+        static StreamWriter file = new StreamWriter("../../../log.txt");//"log.txt");//Path.GetDirectoryName("log.txt"));//@"\log.txt"); // The directory to the txt file.
 
         public static void SetEvents(Board b, GameController controller)
         {
@@ -23,23 +22,29 @@ namespace Mankalari
 
         public static void OnStartGame(string GameType, int cupsPerPlayer, int stonesPerCup)
         {
-            logs.Add($"Starting a new game of {GameType} with {cupsPerPlayer} cups per player filled with {stonesPerCup} stones each");
+            file.WriteLine($"Starting a new game of {GameType} with {cupsPerPlayer} cups per player filled with {stonesPerCup} stones each");
         }
 
         static void OnStartTurn(Player p)
         {
-            logs.Add($"Player {p.name} starts their turn");
+            file.WriteLine($"Player {p.name} starts their turn");
         }
 
         static void OnMove(int index, Cup c, Player p)
         {
-            logs.Add($"Player {p.name} makes {c.points} moves from index {index}");
+            file.WriteLine($"Player {p.name} moves {c.points} stones from index {index}");
         }
 
         static void OnFillCup(int index, Cup c, Player p)
         {
             if (logFillCup) 
-                logs.Add($"Cup {index} is now at {c.points}");
+                file.WriteLine($"Cup {index} is now at {c.points}");
+        }
+
+        public static void OnGameEnd()
+        {
+            file.WriteLine("Game End");
+            file.Close();
         }
 
     }
