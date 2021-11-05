@@ -14,7 +14,8 @@ namespace Mankalari
         public int currentPlayer;
         public Player[] players;
 
-        public event PlayerEventDelegate OnStartTurn, OnGameEnd;
+        public event EventHandler OnGameEnd;
+        public event PlayerEventDelegate OnStartTurn;
         public delegate void PlayerEventDelegate(Player p);
 
         public GameController(string gameType, Player[] players, int stonesPerCup, int cupsPerPlayer)
@@ -24,7 +25,9 @@ namespace Mankalari
 
             logic = LogicFactory.GetLogic(gameType, players, stonesPerCup, cupsPerPlayer);
             EventLogger.SetEvents(logic.board, this);
-            EventLogger.OnStartGame(gameType, cupsPerPlayer, stonesPerCup); //log message to help see where a certain game starts
+            EventLogger.OnStartGame(gameType, cupsPerPlayer, stonesPerCup); //log message to display the game variables at the start
+
+            logic.board.OnMakeMove += OnMoveEvent;
         }
 
         void SetNextPlayer()
@@ -54,7 +57,7 @@ namespace Mankalari
             
             int cupIndex = players[currentPlayer].GetInput();
 
-            if (logic.SelectCup(cupIndex, players[currentPlayer])) //if the move was allowed
+            if (logic.MoveCup(cupIndex, players[currentPlayer])) //if the move was allowed
             {
                 SetNextPlayer();
             }
@@ -80,8 +83,12 @@ namespace Mankalari
             {
                 ConsoleHelper.PrintToConsole($"Player {p.name} ended with {p.points} points! \n", ConsoleColor.Yellow);
             }
-            EventLogger.OnGameEnd(); // 
+            OnGameEnd?.Invoke(this, EventArgs.Empty);
+        }
 
+        public void OnMoveEvent(int index, Cup c, Player p) //display message when the player moves
+        {
+            ConsoleHelper.PrintToConsole($"Player {p.name} moves from {index}", ConsoleColor.Cyan);
         }
 
     }

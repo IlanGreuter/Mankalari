@@ -8,17 +8,20 @@ namespace Mankalari
 {
     class MankalaLogic : GameLogic
     {
+        //chaining moves on ending in a non-empty cup is another inconsistency in mankala's rules
+        //it essentialy feels like the board is randomized after a move
+        const bool allowChainedMoves = true; //setting this to false disables the rule 
 
         public MankalaLogic(Board b) : base(b)
         {
         }
 
-        public override bool IsAllowed(int index, Player p)
+        protected override bool IsAllowed(int index, Player p)
         {
             return base.IsAllowed(index, p);
         }
 
-        public override void EndAtCup(int index, Player p)
+        protected override void EndAtCup(int index, Player p)
         {
             Cup c = board.GetCup(index);
 
@@ -26,8 +29,11 @@ namespace Mankalari
                 playAgain = true;
             else if (c.points > 1) //end in non-empty cup (1 cuz move fills empty cups)
             {
-                int i = board.MakeMove(index, p);
-                EndAtCup(i, p);
+                if (allowChainedMoves)
+                {
+                    int i = board.MakeMove(index, p);
+                    EndAtCup(i, p);
+                }
             }
             else if (c.points == 1 && c.owner == p) //end in own empty cup
             {

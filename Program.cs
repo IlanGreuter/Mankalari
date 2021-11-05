@@ -19,7 +19,6 @@ namespace Mankalari
                 ans = playagain;
             }
 
-
         }
 
         static void StartGame()

@@ -10,18 +10,21 @@ namespace Mankalari
     static class EventLogger 
     {
         const bool logFillCup = true; //disable so log doesn't get bloated with "added stone to X" messages
+        const string filePath = "../../../log.txt";//The path to the txt file. 
+        //By default it wants to put the file where the debug console is in the bin folder so we have to go up a few files
 
-        static StreamWriter file = new StreamWriter("../../../log.txt");//"log.txt");//Path.GetDirectoryName("log.txt"));//@"\log.txt"); // The directory to the txt file.
-
+        static StreamWriter file;
         public static void SetEvents(Board b, GameController controller)
         {
             b.OnMakeMove += OnMove;
             b.OnFillCup += OnFillCup;
             controller.OnStartTurn += OnStartTurn;
+            controller.OnGameEnd += OnGameEnd;
         }
 
         public static void OnStartGame(string GameType, int cupsPerPlayer, int stonesPerCup)
         {
+            file = new StreamWriter(filePath);  
             file.WriteLine($"Starting a new game of {GameType} with {cupsPerPlayer} cups per player filled with {stonesPerCup} stones each");
         }
 
@@ -41,11 +44,10 @@ namespace Mankalari
                 file.WriteLine($"Cup {index} is now at {c.points}");
         }
 
-        public static void OnGameEnd()
+        public static void OnGameEnd(object sender, EventArgs e) //finish log and close filestream
         {
             file.WriteLine("Game End");
             file.Close();
         }
-
     }
 }

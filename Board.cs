@@ -99,7 +99,7 @@ namespace Mankalari
             return null;
         }
 
-        public void PrintBoard(bool showIndex = false)
+        public void DisplayBoard(bool showIndex = false)
         {
             string board = "";
             bool leftToRight = false;
@@ -114,7 +114,7 @@ namespace Mankalari
             ConsoleHelper.PrintToConsole(board, c);
         }
 
-        public string PrintRow(int homeIndex, bool leftToRight, bool showIndex) //returns a string representing a row
+        string PrintRow(int homeIndex, bool leftToRight, bool showIndex) //returns a string representing a row
         {
             string row = "|";
 

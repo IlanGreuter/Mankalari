@@ -13,12 +13,12 @@ namespace Mankalari
 
         }
 
-        public override bool IsAllowed(int index, Player p)
+        protected override bool IsAllowed(int index, Player p)
         {
             return base.IsAllowed(index, p);
         }
 
-        public override void EndAtCup(int index, Player p)
+        protected override void EndAtCup(int index, Player p)
         {
             Cup c = board.GetCup(index);
             if (c.owner != p && (c.points == 2 || c.points == 3)) //steal only if landed in opponents and it has 2 or 3 stones
