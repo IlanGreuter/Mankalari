@@ -15,6 +15,8 @@ namespace Mankalari
         {
             board = b;
             playAgain = false;
+
+            b.OnMakeMove += OnMoveEvent;
         }
 
         public bool StartTurn(Player p) //returns false if no move is possible
@@ -39,7 +41,7 @@ namespace Mankalari
                 return false;
         }
 
-        public virtual bool IsAllowed(int index, Player p)
+        public virtual bool IsAllowed(int index, Player p) //returns true if a move should be allowed according to the game's rules
         {
             Cup c = board.GetCup(index);
             if (c.owner == p && c.points > 0 && !c.isHomeCup)
@@ -47,6 +49,11 @@ namespace Mankalari
                 return true;
             }
             return false;
+        }
+
+        public void OnMoveEvent(int index, Cup c, Player p) //draw the board after the player moves
+        {
+            ConsoleHelper.PrintToConsole($"Player {p.name} moves from {index}", ConsoleColor.Cyan);
         }
 
         public abstract void EndAtCup(int index, Player p);

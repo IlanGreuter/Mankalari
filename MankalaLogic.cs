@@ -11,7 +11,6 @@ namespace Mankalari
 
         public MankalaLogic(Board b) : base(b)
         {
-
         }
 
         public override bool IsAllowed(int index, Player p)
@@ -28,8 +27,6 @@ namespace Mankalari
             else if (c.points > 1) //end in non-empty cup (1 cuz move fills empty cups)
             {
                 int i = board.MakeMove(index, p);
-                ConsoleHelper.PrintToConsole($"Player {p.name} moves from {index}");
-                board.PrintBoard();
                 EndAtCup(i, p);
             }
             else if (c.points == 1 && c.owner == p) //end in own empty cup

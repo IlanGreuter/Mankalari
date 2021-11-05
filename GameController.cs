@@ -13,24 +13,30 @@ namespace Mankalari
         public int currentPlayer;
         public Player[] players;
 
+        public event PlayerEventDelegate OnStartTurn;
+        public delegate void PlayerEventDelegate(Player p);
+
         public GameController(string gameType, Player[] players, int stonesPerCup, int cupsPerPlayer)
         {
             this.players = players;
             currentPlayer = 0; //TODO: Maybe make random
 
             logic = LogicFactory.GetLogic(gameType, players, stonesPerCup, cupsPerPlayer);
+            EventLogger.SetEvents(logic.board, this);
+            EventLogger.OnStartGame(gameType, cupsPerPlayer, stonesPerCup); //log message to help see where a certain game starts
         }
 
         void SetNextPlayer()
         {
-            if (logic.playAgain)
+            if (logic.playAgain) //let current player play again
             {
                 logic.playAgain = false;
             }
-            else
+            else //get next player in the row
             {
                 currentPlayer++;
                 currentPlayer %= players.Length;
+                OnStartTurn?.Invoke(players[currentPlayer]);
             }
         }
 

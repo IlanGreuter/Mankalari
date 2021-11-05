@@ -12,6 +12,9 @@ namespace Mankalari
         public int cupsPerPlayer;
         public bool includeHomeCups;
 
+        public event CupEventDelegate OnMakeMove, OnFillCup;
+        public delegate void CupEventDelegate(int index, Cup cup, Player p);
+
         public Board(int cupsPerPlayer, Player[] players, int stonesPerCup, bool includeHomeCups)
         {
             this.cupsPerPlayer = cupsPerPlayer;
@@ -33,9 +36,12 @@ namespace Mankalari
             }
         }
 
-        public int MakeMove(int index, Player p)
+
+        public int MakeMove(int index, Player p) //performs move from index, also fires events
         {
             Cup startCup = GetCup(index);
+            OnMakeMove?.Invoke(index, startCup, p); //fire move event
+            
             int moves = startCup.points;
             startCup.points = 0; //take the stones out of the cup
 
@@ -49,6 +55,7 @@ namespace Mankalari
                 else //fill other cups, including our own homecup if it is in the cups list
                 {
                     c.points++;
+                    OnFillCup?.Invoke(i, c, p); //fire cup fill event
                 }
             }
 
@@ -135,6 +142,8 @@ namespace Mankalari
 
             return row + "\n";
         }
+
+
 
     }
 }
