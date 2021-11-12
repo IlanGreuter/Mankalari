@@ -8,7 +8,7 @@ namespace Mankalari
         static StartMenuController start;
         static void Main(string[] args)
         {
-            VersionAbstractFactory.SetVersion(VersionTypes.Console);
+            VersionFactory.SetVersion(VersionTypes.Console);
             
             start = new StartMenuController();
             start.QueryUser();

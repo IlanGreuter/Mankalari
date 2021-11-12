@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 namespace Mankalari
 {
-    public static class VersionAbstractFactory
+    public static class VersionFactory
     {
         public static void SetVersion(VersionTypes versionType)
         {
