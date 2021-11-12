@@ -8,7 +8,7 @@ namespace Mankalari
 {
     class MankalaLogic : GameLogic
     {
-        //chaining moves on ending in a non-empty cup is another inconsistency in mankala's rules
+        //chaining moves on ending in a non-empty cup is a variant rule of mancala
         //it essentialy feels like the board is randomized after a move
         const bool allowChainedMoves = true; //setting this to false disables the rule 
 

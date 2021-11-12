@@ -23,7 +23,7 @@ namespace Mankalari
             }
 
             ConsoleColor c = showIndex ? ConsoleColor.Red : ConsoleColor.White;
-            ConsoleHelper.PrintToConsole(board, c);
+            Messenger.Instance.ShowMessage(board, c);
         }
 
         static string PrintRow(int homeIndex, bool leftToRight, bool showIndex, Board b) //returns a string representing a row

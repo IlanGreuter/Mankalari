@@ -8,14 +8,17 @@ namespace Mankalari
         static StartMenuController start;
         static void Main(string[] args)
         {
+            Messenger.Instance = new ConsoleMessenger();
+            
             start = new StartMenuController();
             start.QueryUser();
 
             string ans = "Y";
-            while(ans == "Y" || ans == "yes" || ans == "Yes") //allow multipe spellings
+            while(ans == "Y" || ans == "yes" || ans == "Yes") //allow multiple spellings
             {
                 StartGame();
-                string playagain = ConsoleHelper.AskUser("Play Again? Y/N");
+            
+                string playagain = Messenger.Instance.AskString("Play Again? Y/N");
                 ans = playagain;
             }
 
@@ -24,10 +27,7 @@ namespace Mankalari
         static void StartGame()
         {
             game = start.GetGameController();
-            //GameController.OnTurnStart BoardDrawer.DisplayBoard;
-            
             game.StartGame();
         }
-
     }
 }

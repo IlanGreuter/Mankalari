@@ -16,13 +16,11 @@ namespace Mankalari
             this.name = name;
         }
 
-
         public int GetInput()
         {
-            int input = ConsoleHelper.QueryInt($"From where does Player {name} want to move?", 200);
+            int input = Messenger.Instance.AskMoveInput($"From where does Player {name} want to move?");
 
             return input;
         }
-
     }
 }

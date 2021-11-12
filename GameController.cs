@@ -68,7 +68,7 @@ namespace Mankalari
             }
             else
             {
-                ConsoleHelper.PrintToConsole("Move not allowed, Make sure you move from your own, non-empty cup", ConsoleColor.DarkRed);
+                Messenger.Instance.ShowMessage("Move not allowed, Make sure you move from your own, non-empty cup", ConsoleColor.DarkRed);
             }
             StartTurn();
         }
@@ -86,14 +86,14 @@ namespace Mankalari
             logic.OnGameEnd(this);
             foreach (Player p in players) //show player scores
             {
-                ConsoleHelper.PrintToConsole($"Player {p.name} ended with {p.points} points! \n", ConsoleColor.Yellow);
+                Messenger.Instance.ShowMessage($"Player {p.name} ended with {p.points} points! \n", ConsoleColor.Yellow);
             }
             OnGameEnd?.Invoke(this, EventArgs.Empty);
         }
 
         public void OnMoveEvent(int index, Cup c, Player p) //display message when the player moves
         {
-            ConsoleHelper.PrintToConsole($"Player {p.name} moves from {index}", ConsoleColor.Cyan);
+            Messenger.Instance.ShowMessage($"Player {p.name} moves from {index}", ConsoleColor.Cyan);
         }
 
     }

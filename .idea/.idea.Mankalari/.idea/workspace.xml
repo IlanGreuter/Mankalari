@@ -6,11 +6,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="079054ef-9f4f-4a7b-81c0-198ebde7ce09" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ConsoleMessenger.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Messenger.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Mankalari/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Mankalari/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoardDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BoardDrawer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleHelper.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GameController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MankalaLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MankalaLogic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mankalari.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Mankalari.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StartMenuController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/StartMenuController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/Mankalari.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/Mankalari.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/Mankalari.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/Mankalari.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/ref/Mankalari.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/ref/Mankalari.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Mankalari.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Mankalari.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Mankalari.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Mankalari.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Mankalari.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Mankalari.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/ref/Mankalari.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/ref/Mankalari.dll" afterDir="false" />
@@ -35,26 +45,30 @@
     <setting file="file://$PROJECT_DIR$/../ConsoleAppli/ConsoleHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Board.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../ConsoleAppli/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ConsoleHelper.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/ClassLibrary1/Class1.cs" />
-      <option value="$PROJECT_DIR$/ConsoleHelper.cs" />
       <option value="$PROJECT_DIR$/ConsoleInput.cs" />
       <option value="$PROJECT_DIR$/InputGetter.cs" />
       <option value="$PROJECT_DIR$/../ConsoleAppli/ConsoleInput.cs" />
       <option value="$PROJECT_DIR$/ClassLibrary1/MankalaFacade.cs" />
       <option value="$PROJECT_DIR$/MankalaLib/Class1.cs" />
       <option value="$PROJECT_DIR$/EventLogger.cs" />
-      <option value="$PROJECT_DIR$/Messenger.cs" />
       <option value="$PROJECT_DIR$/../ConsoleAppli/Program.cs" />
       <option value="$PROJECT_DIR$/Cup.cs" />
-      <option value="$PROJECT_DIR$/Player.cs" />
-      <option value="$PROJECT_DIR$/Program.cs" />
       <option value="$PROJECT_DIR$/GameLogic.cs" />
-      <option value="$PROJECT_DIR$/BoardDrawer.cs" />
       <option value="$PROJECT_DIR$/Board.cs" />
+      <option value="$PROJECT_DIR$/MankalaLogic.cs" />
       <option value="$PROJECT_DIR$/GameController.cs" />
+      <option value="$PROJECT_DIR$/BoardDrawer.cs" />
+      <option value="$PROJECT_DIR$/ConsoleHelper.cs" />
+      <option value="$PROJECT_DIR$/Player.cs" />
+      <option value="$PROJECT_DIR$/ConsoleMessenger.cs" />
+      <option value="$PROJECT_DIR$/Messenger.cs" />
+      <option value="$PROJECT_DIR$/StartMenuController.cs" />
+      <option value="$PROJECT_DIR$/Program.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="20pB3CZW14ji51UIVg6eGhOB0sX" />
@@ -74,6 +88,7 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="CodeInspectionSettingsId" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -125,7 +140,7 @@
       <updated>1636731450293</updated>
       <workItem from="1636731460552" duration="223000" />
       <workItem from="1636731704282" duration="7302000" />
-      <workItem from="1636740459935" duration="7097000" />
+      <workItem from="1636740459935" duration="10501000" />
     </task>
     <servers />
   </component>
