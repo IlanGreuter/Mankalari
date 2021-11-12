@@ -6,20 +6,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="079054ef-9f4f-4a7b-81c0-198ebde7ce09" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/BoardDrawerConsole.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VersionAbstractFactory.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Mankalari/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Mankalari/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoardDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BoardDrawer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StartMenuController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/StartMenuController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/Mankalari.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/Mankalari.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/Mankalari.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/Mankalari.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/ref/Mankalari.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/ref/Mankalari.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Mankalari.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Mankalari.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Mankalari.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Mankalari.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Mankalari.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Mankalari.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/ref/Mankalari.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/ref/Mankalari.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GameLogic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MankalaLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MankalaLogic.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,9 +43,7 @@
       <option value="$PROJECT_DIR$/EventLogger.cs" />
       <option value="$PROJECT_DIR$/../ConsoleAppli/Program.cs" />
       <option value="$PROJECT_DIR$/Cup.cs" />
-      <option value="$PROJECT_DIR$/GameLogic.cs" />
       <option value="$PROJECT_DIR$/Board.cs" />
-      <option value="$PROJECT_DIR$/MankalaLogic.cs" />
       <option value="$PROJECT_DIR$/ConsoleHelper.cs" />
       <option value="$PROJECT_DIR$/Player.cs" />
       <option value="$PROJECT_DIR$/ConsoleMessenger.cs" />
@@ -67,6 +54,8 @@
       <option value="$PROJECT_DIR$/VersionAbstractFactory.cs" />
       <option value="$PROJECT_DIR$/Program.cs" />
       <option value="$PROJECT_DIR$/StartMenuController.cs" />
+      <option value="$PROJECT_DIR$/GameLogic.cs" />
+      <option value="$PROJECT_DIR$/MankalaLogic.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="20pB3CZW14ji51UIVg6eGhOB0sX" />
@@ -138,7 +127,7 @@
       <updated>1636731450293</updated>
       <workItem from="1636731460552" duration="223000" />
       <workItem from="1636731704282" duration="7302000" />
-      <workItem from="1636740459935" duration="12125000" />
+      <workItem from="1636740459935" duration="12676000" />
     </task>
     <servers />
   </component>

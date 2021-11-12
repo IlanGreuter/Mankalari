@@ -10,7 +10,7 @@ namespace Mankalari
     {
         //chaining moves on ending in a non-empty cup is a variant rule of mancala
         //it essentialy feels like the board is randomized after a move
-        const bool allowChainedMoves = true; //setting this to false disables the rule 
+        protected bool allowChainedMoves = true, stealAllowed = true; //can potentially be overwritten in a subclass
 
         public MankalaLogic(Board b) : base(b)
         {
@@ -35,7 +35,7 @@ namespace Mankalari
                     EndAtCup(i, p);
                 }
             }
-            else if (c.points == 1 && c.owner == p) //end in own empty cup
+            else if (c.points == 1 && c.owner == p && stealAllowed) //end in own empty cup
             {
                 Cup opposite = board.GetOppositeCup(index);
                 if (opposite.points > 0) // only steal if opposite cup is empty
@@ -58,6 +58,5 @@ namespace Mankalari
                 c.owner.points += c.points;
             }
         }
-
     }
 }

@@ -36,7 +36,7 @@ namespace Mankalari
             else
                 return false;
         }
-
+        
         protected virtual bool IsAllowed(int index, Player p) //returns true if a move should be allowed according to the game's rules
         {
             Cup c = board.GetCup(index);
