@@ -24,6 +24,8 @@ namespace Mankalari
         static void StartGame()
         {
             game = start.GetGameController();
+            //GameController.OnTurnStart BoardDrawer.DisplayBoard;
+            
             game.StartGame();
         }
 

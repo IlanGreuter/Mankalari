@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mankalari
 {
-    class Cup
+    public class Cup
     {
         public int points;
         public Player owner;

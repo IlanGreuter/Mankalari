@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mankalari
 {
-    class Player
+    public class Player
     {
         public string name;
         public int points = 0;

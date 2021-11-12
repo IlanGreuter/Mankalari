@@ -17,6 +17,7 @@ namespace Mankalari
         public event EventHandler OnGameEnd;
         public event PlayerEventDelegate OnStartTurn;
         public delegate void PlayerEventDelegate(Player p);
+        //public EventArgs BoardArg 
 
         public GameController(string gameType, Player[] players, int stonesPerCup, int cupsPerPlayer)
         {
@@ -28,6 +29,7 @@ namespace Mankalari
             EventLogger.OnStartGame(gameType, cupsPerPlayer, stonesPerCup); //log message to display the game variables at the start
 
             logic.board.OnMakeMove += OnMoveEvent;
+            logic.board.onMoveEnd += BoardDrawer.DrawBoard;
         }
 
         void SetNextPlayer()
@@ -46,6 +48,7 @@ namespace Mankalari
 
         public void StartTurn()
         {
+            BoardDrawer.DrawBoard(logic.board, true);
             if (!logic.StartTurn(players[currentPlayer])) //if no move is possible
                 EndGame();
             else
