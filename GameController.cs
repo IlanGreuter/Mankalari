@@ -16,6 +16,7 @@ namespace Mankalari
 
         public event EventHandler OnGameEnd;
         public event PlayerEventDelegate OnStartTurn;
+        public event Board.BoardEventDelegate onDrawStartTurn;
         public delegate void PlayerEventDelegate(Player p);
         //public EventArgs BoardArg 
 
@@ -30,6 +31,7 @@ namespace Mankalari
 
             logic.board.OnMakeMove += OnMoveEvent;
             logic.board.onMoveEnd += BoardDrawer.DrawBoard;
+            onDrawStartTurn += BoardDrawer.DrawBoard;
         }
 
         void SetNextPlayer()
@@ -48,7 +50,7 @@ namespace Mankalari
 
         public void StartTurn()
         {
-            BoardDrawer.DrawBoard(logic.board, true);
+            onDrawStartTurn?.Invoke(logic.board, true);
             if (!logic.StartTurn(players[currentPlayer])) //if no move is possible
                 EndGame();
             else
