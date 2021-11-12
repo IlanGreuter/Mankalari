@@ -131,7 +131,7 @@ namespace Mankalari
 
             string home;
             if (showIndex) //show home's points, home's index (if it has one) or nothing
-                home = includeHomeCups ? $" {cupIndex + cupsPerPlayer} " : "   ";
+                home = includeHomeCups ? $" {cupIndex + cupsPerPlayer}".PadRight(3) : "   ";
             else
                 home = homeCups[homeIndex].ToString();
 
