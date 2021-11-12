@@ -30,7 +30,7 @@ namespace Mankalari
 
         public bool VerifyGameMode(string gameMode)
         {
-            if (gameMode == "Mankala" || gameMode == "MANCALA") 
+            if (gameMode == "MANKALA" || gameMode == "MANCALA") 
                 return true;
             if (gameMode == "WARI")
                 return true;

@@ -8,7 +8,7 @@ namespace Mankalari
         static StartMenuController start;
         static void Main(string[] args)
         {
-            Messenger.Instance = new ConsoleMessenger();
+            VersionAbstractFactory.SetVersion(VersionTypes.Console);
             
             start = new StartMenuController();
             start.QueryUser();
@@ -21,7 +21,6 @@ namespace Mankalari
                 string playagain = Messenger.Instance.AskString("Play Again? Y/N");
                 ans = playagain;
             }
-
         }
 
         static void StartGame()

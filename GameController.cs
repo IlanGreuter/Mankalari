@@ -18,7 +18,6 @@ namespace Mankalari
         public event PlayerEventDelegate OnStartTurn;
         public event Board.BoardEventDelegate onDrawStartTurn;
         public delegate void PlayerEventDelegate(Player p);
-        //public EventArgs BoardArg 
 
         public GameController(string gameType, Player[] players, int stonesPerCup, int cupsPerPlayer)
         {
@@ -30,8 +29,8 @@ namespace Mankalari
             EventLogger.OnStartGame(gameType, cupsPerPlayer, stonesPerCup); //log message to display the game variables at the start
 
             logic.board.OnMakeMove += OnMoveEvent;
-            logic.board.onMoveEnd += BoardDrawer.DrawBoard;
-            onDrawStartTurn += BoardDrawer.DrawBoard;
+            logic.board.onMoveEnd += BoardDrawer.Instance.DrawBoard;
+            onDrawStartTurn += BoardDrawer.Instance.DrawBoard;
         }
 
         void SetNextPlayer()
